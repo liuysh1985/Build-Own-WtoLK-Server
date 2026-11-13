@@ -1,0 +1,31 @@
+# MySQL 8.4 tuning for the ac-database container (mounted read-only at
+# /etc/mysql/conf.d/custom.cnf). Live copy lives in $RUNTIME_DIR/conf/mysql.cnf
+# (path exported as $MYSQL_CNF by start-server.sh) — edit that one, then:
+#   docker compose up -d ac-database
+# Settings here are loaded AFTER the image defaults; see `mysqld --verbose --help`.
+
+[mysqld]
+# --- Host budget: local LLM takes ~100G; the whole WoW server gets ~20G,
+# --- MySQL ~6G (mem_limit in docker-compose.yml). Keep pool <= ~2/3 of that.
+skip-log-bin                    # Disables binary logging — reduces disk writes by 75-90%. Safe for single-server setups that don't need replication.
+innodb_buffer_pool_size = 4G    # WotLK DBs fit entirely in RAM at this size
+innodb_io_capacity = 500
+innodb_io_capacity_max = 2500
+transaction_isolation = READ-COMMITTED
+innodb_buffer_pool_instances = 4
+
+# --- Connections ---
+# 10 players + 50+ bots: worldserver/authserver hold several pooled conns each.
+max_connections = 300
+# Avoid per-connection reverse DNS lookups for container-name clients.
+skip-name-resolve
+
+# --- Durability / IO ---
+# 2 = group commit per second: good balance for a game DB on NVMe.
+innodb_flush_log_at_trx_commit = 2
+innodb_redo_log_capacity = 1G
+
+# --- Misc ---
+# AC/playerbots queries are aggregate-heavy on old-style GROUP BY; only enable
+# this if your queries are ONLY_FULL_GROUP_BY-clean (image default keeps it on).
+# sql_mode = NO_ENGINE_SUBSTITUTION

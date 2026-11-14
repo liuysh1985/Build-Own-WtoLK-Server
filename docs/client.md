@@ -47,10 +47,13 @@ cd $CLIENT_DIR/Interface/AddOns && git clone https://github.com/z980944038-dev/E
 
 ### AddOns
 - Download addons from [Legacy WOW](https://legacy-wow.com/wotlk-addons/)
-- Download ElvUI from [ElvUI-WotLK](https://github.com/ElvUI-WotLK/ElvUI)
+- (Optional) Download ElvUI from [ElvUI-WotLK](https://github.com/ElvUI-WotLK/ElvUI)
 - Download **MultiBot** from [Github Repo](https://github.com/Macx-Lio/MultiBot)
+- (Optional) Download ConsolePort from [ConsolePortLK](https://github.com/leoaviana/ConsolePortLK) or [ConsolePortLK-Enhanced](https://github.com/SuttonX/ConsolePortLK-Enhanced)
 
-## Target environments
+Put all addons into folder `$CLIENT_DIR/Interface/AddOns`
+
+## HOWTO in different OS
 
 ### Linux
 Proton

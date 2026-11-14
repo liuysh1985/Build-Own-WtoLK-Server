@@ -1,5 +1,5 @@
-# Build-Own-WtoLK-Server
-Hands-on experience of building WtoLK server with several modules on any x86 PC
+# Build-Own-WotLK-Server
+Hands-on experience of building WotLK server with several modules on any x86 PC
 
 ## Handware and OS
 |Type|Description|

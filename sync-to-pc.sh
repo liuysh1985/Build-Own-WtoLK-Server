@@ -1,20 +1,20 @@
 #!/bin/bash
-# One-way sync of this repo (laptop -> WtoLK server PC) over SSH/rsync.
-# Never touches the server's runtime dir ($HOME/WtoLK/runtime on the PC).
+# One-way sync of this repo (laptop -> WotLK server PC) over SSH/rsync.
+# Never touches the server's runtime dir ($HOME/WotLK/runtime on the PC).
 CURRENT_DIR=$(cd `dirname $0`;pwd)
 
 usage() {
     cat <<EOF
 Usage: ${0##*/} --target-ip <ip> [OPTIONS]
 
-rsync this repo one-way to the WtoLK server PC. Excludes .git, local-only
+rsync this repo one-way to the WotLK server PC. Excludes .git, local-only
 files (opencode.json*) and junk (.DS_Store); never touches the PC's
-\$HOME/WtoLK/runtime.
+\$HOME/WotLK/runtime.
 
 Options:
   --target-ip <ip>   Target host (required)
   --port <port>      SSH port                          (default: 22)
-  --folder <path>    Destination folder on the target  (default: ~/Build-Own-WtoLK-Server)
+  --folder <path>    Destination folder on the target  (default: ~/Build-Own-WotLK-Server)
   --dry-run          Show what would be synced without copying
   -h, --help         Show this help and exit
 
@@ -25,7 +25,7 @@ EOF
 
 TARGET_IP=""
 SSH_PORT="22"
-DEST_FOLDER="~/Build-Own-WtoLK-Server"
+DEST_FOLDER="~/Build-Own-WotLK-Server"
 DRY_RUN=""
 
 while [ $# -gt 0 ]; do
@@ -65,7 +65,7 @@ case "${FOLDER_NOSLASH}" in
     /*/*) : ;;
     /*)
         echo "Refusing to sync into such a broad destination: '${DEST_FOLDER}'" >&2
-        echo "Use a nested folder, e.g. /home/$USER/Build-Own-WtoLK-Server" >&2
+        echo "Use a nested folder, e.g. /home/$USER/Build-Own-WotLK-Server" >&2
         exit 1 ;;
 esac
 

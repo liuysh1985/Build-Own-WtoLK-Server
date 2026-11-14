@@ -3,7 +3,7 @@ Target: Support 10 real players and 50+ bots
 
 
 ## Folder Structures
-Default Runtime Folder: `$HOME/WtoLK/runtime`
+Default Runtime Folder: `$HOME/WotLK/runtime`
 
 |File/Folder|Usage|
 |-|--|

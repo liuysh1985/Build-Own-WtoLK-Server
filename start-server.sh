@@ -5,12 +5,12 @@ usage() {
     cat <<EOF
 Usage: ${0##*/} [OPTIONS]
 
-Bootstrap the WtoLK runtime (dirs, conf files, DB password) and print the
+Bootstrap the WotLK runtime (dirs, conf files, DB password) and print the
 environment needed to launch the server. Does NOT start the server itself.
 
 Options:
   --image-tag <tag>          Docker image tag                  (default: master)
-  --runtime-dir <dir>        Runtime directory                 (default: \$HOME/WtoLK/runtime)
+  --runtime-dir <dir>        Runtime directory                 (default: \$HOME/WotLK/runtime)
   --db-password-file <file>  DB root password file             (default: <runtime-dir>/db.password)
   --compose-file <file>      Own docker-compose file to use    (default: docker-compose.yml in this repo)
   --refresh-conf             Overwrite runtime conf files with the repo's conf/ (repo wins)
@@ -58,7 +58,7 @@ if [ -n "${COMPOSE_FILE}" ]; then
 fi
 
 [ -n "${DOCKER_IMAGE_TAG}" ] || DOCKER_IMAGE_TAG="master"
-[ -n "${RUNTIME_DIR}" ]      || RUNTIME_DIR="$HOME/WtoLK/runtime"
+[ -n "${RUNTIME_DIR}" ]      || RUNTIME_DIR="$HOME/WotLK/runtime"
 # Resolve after --runtime-dir so the default tracks a custom dir
 [ -n "${DB_PASSWORD_FILE}" ] || DB_PASSWORD_FILE="${RUNTIME_DIR}/db.password"
 

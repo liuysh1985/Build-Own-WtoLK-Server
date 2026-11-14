@@ -2,7 +2,7 @@
 Build a pure client which supports en-US and zh-CN(optional).
 
 ## Download and re-pack a usable client
-Download a pure WtoLK 3.3.5a client from this [Website](https://www.dkpminus.com/blog/wow-wotlk-3-3-5a-download-wrath-of-the-lich-king-client/) using a BT downloader.
+Download a pure WotLK 3.3.5a client from this [Website](https://www.dkpminus.com/blog/wow-wotlk-3-3-5a-download-wrath-of-the-lich-king-client/) using a BT downloader.
 
 
 ### LLA Patch `Wow.exe`
